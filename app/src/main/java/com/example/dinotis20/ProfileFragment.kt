@@ -1,10 +1,15 @@
 package com.example.dinotis20
 
+import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +40,45 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        frag_profile_account?.setOnClickListener {
+            Toast.makeText(view.context, "Account page", Toast.LENGTH_SHORT).show()
+        }
+
+        frag_profile_subs?.setOnClickListener {
+            Toast.makeText(view.context, "Your Choice Creator page", Toast.LENGTH_SHORT).show()
+        }
+
+        frag_profile_roles?.setOnClickListener {
+            Toast.makeText(view.context, "Pick Roles page", Toast.LENGTH_SHORT).show()
+        }
+
+        frag_profile_help?.setOnClickListener {
+            val url = "https://api.whatsapp.com/send?phone=+6281392413876"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setData(Uri.parse(url))
+            startActivity(intent)
+        }
+
+        frag_profile_logout?.setOnClickListener {
+            val builder = AlertDialog.Builder(view.context)
+            builder.setTitle("Logout")
+            builder.setMessage("Are you sure you want to logout?")
+            builder.setPositiveButton("Yes") { dialog, which ->
+                Toast.makeText(view.context, "Logged out!", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("No") { dialog, which ->
+                Toast.makeText(view.context, "Cancelled logout", Toast.LENGTH_SHORT).show()
+            }
+
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+        }
     }
 
     companion object {

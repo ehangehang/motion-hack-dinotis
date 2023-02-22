@@ -39,12 +39,15 @@
                 android:layout_below="@+id/frag_home_img_profpic"/>
             
             <EditText
+                android:id="@+id/frag_home_edt_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/frag_home_txt_name"
                 android:hint="Search your creator..."
                 android:layout_marginVertical="25dp"
-                android:layout_marginHorizontal="20dp"/>
+                android:layout_marginHorizontal="20dp"
+                android:inputType="none"
+                android:editable="true"/>
 
         </RelativeLayout>
 
