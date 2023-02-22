@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_home"
+        android:enabled="true"
+        android:title="@string/item_home"/>
+
+    <item
+        android:id="@+id/fragment_explore"
+        android:enabled="true"
+        android:title="@string/item_explore"/>
+
+    <item
+        android:id="@+id/fragment_transaction"
+        android:enabled="true"
+        android:title="@string/item_transaction"/>
+
+    <item
+        android:id="@+id/fragment_profile"
+        android:enabled="true"
+        android:title="@string/item_profile"/>
+
+</menu>
