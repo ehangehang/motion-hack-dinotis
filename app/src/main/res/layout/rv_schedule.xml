@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         
-        <androidx.constraintlayout.utils.widget.ImageFilterView
+        <ImageView
             android:id="@+id/rv_scd_img_profpic"
             android:layout_width="155dp"
             android:layout_height="164dp"
