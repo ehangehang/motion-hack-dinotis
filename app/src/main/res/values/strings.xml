@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Dinotis 2.0</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_home">Home</string>
+    <string name="item_explore">Explore</string>
+    <string name="item_transaction">Transaction</string>
+    <string name="item_profile">Profile</string>
+
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
