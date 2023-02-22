@@ -6,9 +6,136 @@
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is home screen" />
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/frag_home_img_profpic"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <Button
+                android:id="@+id/frag_home_bt_notif"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="20dp"/>
+
+            <TextView
+                android:id="@+id/frag_home_txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name_here"
+                android:textSize="30sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_below="@+id/frag_home_img_profpic"/>
+            
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/frag_home_txt_name"
+                android:hint="Search your creator..."
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="20dp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <LinearLayout
+                android:id="@+id/frag_home_lyt_schedule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_launcher_background"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule"/>
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/frag_home_lyt_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/frag_home_lyt_meet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Meet"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/frag_home_lyt_wallet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wallet"/>
+
+            </LinearLayout>
+            
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
 </FrameLayout>
