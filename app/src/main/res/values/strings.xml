@@ -6,4 +6,9 @@
     <string name="item_explore">Explore</string>
     <string name="item_transaction">Transaction</string>
     <string name="item_profile">Profile</string>
+
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="phonenumber">Phone Number</string>
 </resources>
