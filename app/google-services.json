@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "666853847840",
+    "project_id": "dinotis-2",
+    "storage_bucket": "dinotis-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666853847840:android:971c4498d024c645d49d45",
+        "android_client_info": {
+          "package_name": "com.example.dinotis20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666853847840-gcklgdp5iblbho934n0muleds5voauj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dinotis20",
+            "certificate_hash": "ceec72f1dcebe8be9f6876e357e91977e61ed1f2"
+          }
+        },
+        {
+          "client_id": "666853847840-odcas9sqvuh5gqn9f7783ou1llo5qp9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF-WVq96RSrYFmOMUbrmxlm1equCCOx1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666853847840-odcas9sqvuh5gqn9f7783ou1llo5qp9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
