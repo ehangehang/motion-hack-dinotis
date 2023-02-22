@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/rv_live_img_profpic"
+            android:layout_width="82dp"
+            android:layout_height="90dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/rv_live_txt_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" LIVE "
+            android:layout_alignBottom="@id/rv_live_img_profpic"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:background="@android:color/holo_red_light"/>
+
+        <TextView
+            android:id="@+id/rv_live_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="99k"
+            android:layout_alignBottom="@id/rv_live_img_profpic"
+            android:layout_alignEnd="@id/rv_live_img_profpic"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

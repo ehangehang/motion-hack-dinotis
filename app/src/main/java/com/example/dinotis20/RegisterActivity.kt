@@ -1,5 +1,6 @@
 package com.example.dinotis20
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -40,6 +41,8 @@ class RegisterActivity : AppCompatActivity() {
         btRegister.setOnClickListener{
             if (edtPhoneNumber.text.isNotEmpty()) {
                 phoneNumber += edtPhoneNumber.text.toString()
+                Toast.makeText(this, "Registered dummy", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LoginActivity::class.java))
             } else {
                 Toast.makeText(this, "Please enter a valid phone number!", Toast.LENGTH_SHORT).show()
             }
