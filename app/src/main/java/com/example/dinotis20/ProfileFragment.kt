@@ -53,6 +53,10 @@ class ProfileFragment : Fragment() {
             Toast.makeText(view.context, "Your Choice Creator page", Toast.LENGTH_SHORT).show()
         }
 
+        frag_profile_portfolio?.setOnClickListener {
+            Toast.makeText(view.context, "Portfolio page", Toast.LENGTH_SHORT).show()
+        }
+
         frag_profile_roles?.setOnClickListener {
             Toast.makeText(view.context, "Pick Roles page", Toast.LENGTH_SHORT).show()
         }
