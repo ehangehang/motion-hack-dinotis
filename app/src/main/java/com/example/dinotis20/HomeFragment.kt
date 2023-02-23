@@ -52,6 +52,27 @@ class HomeFragment : Fragment() {
         /*frag_home_edt_search?.setOnClickListener {
             startActivity(Intent(view.context, SearchActivity::class.java))
         }*/
+
+        frag_home_lyt_schedule?.setOnClickListener {
+            startActivity(Intent(view.context, ScheduleActivity::class.java))
+        }
+
+        frag_home_lyt_category?.setOnClickListener {
+            startActivity(Intent(view.context, CategoryActivity::class.java))
+        }
+
+        frag_home_lyt_meet?.setOnClickListener {
+            startActivity(Intent(view.context, MeetActivity::class.java))
+        }
+
+        frag_home_lyt_wallet?.setOnClickListener {
+            startActivity(Intent(view.context, WalletActivity::class.java))
+        }
+
+        frag_home_bt_notif?.setOnClickListener {
+            startActivity(Intent(view.context, NotificationActivity::class.java))
+        }
+
     }
 
     companion object {
