@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         PreferenceManager.getDefaultSharedPreferences(this).apply {
-            onBoardDone = getBoolean(OnboardingActivity.COMPLETED_ONBOARD_PREF_NAME, false)
+            onBoardDone = getBoolean("onBoardDone", false)
         }
 
         Handler(Looper.getMainLooper()).postDelayed({

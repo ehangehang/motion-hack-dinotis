@@ -17,7 +17,7 @@ class OnboardingActivity : AppCompatActivity() {
         nextButton = findViewById(R.id.ob_button_next)
         nextButton.setOnClickListener {
             PreferenceManager.getDefaultSharedPreferences(this).edit().apply {
-                putBoolean(COMPLETED_ONBOARD_PREF_NAME, true)
+                putBoolean("onBoardDone", true)
                 apply()
             }
             startActivity(Intent(this, MainActivity::class.java))
