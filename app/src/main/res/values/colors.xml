@@ -11,4 +11,5 @@
     <color name="main_accent">#FF74B1</color>
     <color name="secondary_accent">#D9D9D9</color>
     <color name="dark_accent">#3F3351</color>
+    <color name="orange_accent">#FFA53A</color>
 </resources>
