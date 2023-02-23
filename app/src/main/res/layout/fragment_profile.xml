@@ -10,14 +10,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_img_profpic"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/ic_launcher_background"/>
+            android:src="@drawable/ic_launcher_background"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"/>
 
         <TextView
             android:id="@+id/profile_txt_name"
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="name_here"
             android:textSize="24sp"
-            android:textColor="@color/black"
+            android:textColor="@color/dark_accent"
             android:textAlignment="center"/>
 
         <TextView
@@ -34,8 +35,9 @@
             android:layout_height="wrap_content"
             android:text="categories_here"
             android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textAlignment="center"/>
+            android:textColor="@color/dark_accent"
+            android:textAlignment="center"
+            android:layout_marginBottom="60dp"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/frag_profile_account"
@@ -54,13 +56,15 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_profile"
+                    android:padding="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Account"/>
+                    android:text="Account"
+                    android:textColor="@color/dark_accent"/>
 
             </LinearLayout>
 
@@ -83,13 +87,15 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_lovely"
+                    android:padding="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Your Choice Creator"/>
+                    android:text="Your Choice Creator"
+                    android:textColor="@color/dark_accent"/>
 
             </LinearLayout>
 
@@ -112,13 +118,15 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_user_octagon"
+                    android:padding="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Pick Roles"/>
+                    android:text="Pick Roles"
+                    android:textColor="@color/dark_accent"/>
 
             </LinearLayout>
 
@@ -141,13 +149,15 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_teacher"
+                    android:padding="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Portfolio"/>
+                    android:text="Portfolio"
+                    android:textColor="@color/dark_accent"/>
 
             </LinearLayout>
 
@@ -170,13 +180,15 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_message_question"
+                    android:padding="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Help"/>
+                    android:text="Help"
+                    android:textColor="@color/dark_accent"/>
 
             </LinearLayout>
 
@@ -199,13 +211,15 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/ic_logout"
+                    android:padding="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Log Out"/>
+                    android:text="Log Out"
+                    android:textColor="@android:color/holo_red_light"/>
 
             </LinearLayout>
 

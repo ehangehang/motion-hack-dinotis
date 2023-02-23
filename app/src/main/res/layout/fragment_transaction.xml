@@ -18,36 +18,55 @@
             android:textSize="18sp"
             android:textColor="@color/dark_accent"
             android:textStyle="bold"
-            android:text="Your Transaction"/>
+            android:text="Your Transaction"
+            android:layout_margin="20dp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:elevation="4dp"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="10dp"
+            android:layout_marginHorizontal="20dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/frag_trans_img_wallet"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:src="@drawable/ic_empty_wallet_time"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Waiting for payment"/>
+                    android:text="Waiting for payment"
+                    android:textColor="@color/dark_accent"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/frag_trans_img_wallet"/>
 
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/frag_trans_rv_trans"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"/>
 
     </LinearLayout>
 
