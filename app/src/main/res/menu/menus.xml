@@ -4,21 +4,25 @@
     <item
         android:id="@+id/fragment_home"
         android:enabled="true"
-        android:title="@string/item_home"/>
+        android:title="@string/item_home"
+        android:icon="@drawable/ic_home"/>
 
     <item
         android:id="@+id/fragment_explore"
         android:enabled="true"
-        android:title="@string/item_explore"/>
+        android:title="@string/item_explore"
+        android:icon="@drawable/ic_route_square"/>
 
     <item
         android:id="@+id/fragment_transaction"
         android:enabled="true"
-        android:title="@string/item_transaction"/>
+        android:title="@string/item_transaction"
+        android:icon="@drawable/ic_ticket_star"/>
 
     <item
         android:id="@+id/fragment_profile"
         android:enabled="true"
-        android:title="@string/item_profile"/>
+        android:title="@string/item_profile"
+        android:icon="@drawable/ic_profile"/>
 
 </menu>

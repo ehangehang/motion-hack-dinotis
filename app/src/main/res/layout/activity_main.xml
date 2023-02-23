@@ -19,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menus"/>
+        app:itemIconTint="@color/bnv_tab_item"
+        app:itemTextColor="@color/dark_accent"
+        app:menu="@menu/menus" />
 
 </RelativeLayout>

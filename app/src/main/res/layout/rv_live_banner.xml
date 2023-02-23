@@ -16,6 +16,7 @@
         android:layout_height="44dp"
         android:text="creator_name"
         android:textSize="14sp"
+        android:textStyle="bold"
         android:textColor="@color/dark_accent"
         android:layout_toEndOf="@+id/rv_banner_img_profpic"
         android:layout_alignTop="@+id/rv_banner_img_profpic"
