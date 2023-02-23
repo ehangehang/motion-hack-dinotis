@@ -42,9 +42,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        frag_home_edt_search?.setOnClickListener {
-            startActivity(Intent(view.context, SearchActivity::class.java))
+        frag_home_edt_search?.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                startActivity(Intent(view.context, SearchActivity::class.java))
+                frag_home_edt_search.clearFocus()
+            }
         }
+        
+        /*frag_home_edt_search?.setOnClickListener {
+            startActivity(Intent(view.context, SearchActivity::class.java))
+        }*/
     }
 
     companion object {

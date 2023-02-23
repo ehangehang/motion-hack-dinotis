@@ -47,6 +47,7 @@
                 android:layout_marginVertical="25dp"
                 android:layout_marginHorizontal="20dp"
                 android:inputType="none"
+                android:singleLine="true"
                 android:editable="true"/>
 
         </RelativeLayout>

@@ -11,7 +11,8 @@
         android:id="@+id/src_edt_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search your creator..."/>
+        android:hint="Search your creator..."
+        android:singleLine="true"/>
 
     <TextView
         android:layout_width="match_parent"
