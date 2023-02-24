@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/rv_hm_img_profpic"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/rv_hm_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="title_here"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_accent"
+            android:layout_toEndOf="@id/rv_hm_img_profpic"/>
+
+        <TextView
+            android:id="@+id/rv_hm_txt_creator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="creator_name_here"
+            android:textSize="16sp"
+            android:textColor="@color/dark_accent"
+            android:layout_toEndOf="@id/rv_hm_img_profpic"
+            android:layout_below="@id/rv_hm_txt_title"/>
+
+        <TextView
+            android:id="@+id/rv_hm_txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date_here"
+            android:textSize="16sp"
+            android:textColor="@color/dark_accent"
+            android:layout_toEndOf="@id/rv_hm_img_profpic"
+            android:layout_below="@id/rv_hm_txt_creator"/>
+
+        <TextView
+            android:id="@+id/rv_hm_txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="time_here"
+            android:textSize="16sp"
+            android:textColor="@color/dark_accent"
+            android:layout_toEndOf="@id/rv_hm_img_profpic"
+            android:layout_below="@id/rv_hm_txt_date"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:text="status_here"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_accent"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/rv_hm_txt_link"/>
+
+        <TextView
+            android:id="@+id/rv_hm_txt_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Link Meet"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@color/orange_accent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/rv_hm_img_profpic"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
