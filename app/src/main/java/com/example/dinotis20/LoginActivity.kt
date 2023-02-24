@@ -41,11 +41,14 @@ class LoginActivity : AppCompatActivity() {
 
         btLogin.setOnClickListener {
             if (edtEmail.text.isNotEmpty() && edtPassword.text.isNotEmpty()) {
+                btLogin.isEnabled = false
                 auth.signInWithEmailAndPassword(edtEmail.text.toString(), edtPassword.text.toString())
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             startActivity(Intent(this, MainActivity::class.java))
+                            finish()
                         } else {
+                            btLogin.isEnabled = true
                             Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
                         }
                     }
