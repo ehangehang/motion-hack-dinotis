@@ -24,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
     private var phoneNumber = "+62"
 
     // elements
-    private val edtPhoneNumber = findViewById<EditText>(R.id.rg_edt_phonenum)
+    private val edtPhoneNumber = findViewById<EditText>(R.id.rg_edt_email)
     private val edtName = findViewById<EditText>(R.id.rg_edt_name)
     private val edtPassword = findViewById<EditText>(R.id.rg_edt_pass)
     private val edtRePassword = findViewById<EditText>(R.id.rg_edt_repass)
