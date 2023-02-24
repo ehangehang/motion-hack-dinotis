@@ -8,5 +8,5 @@ data class Creator (
     @SerializedName("username"    ) var username    : String?                = null,
     @SerializedName("profilPhoto" ) var profilPhoto : String?                = null,
     @SerializedName("isVerified"  ) var isVerified  : Boolean?               = null,
-    @SerializedName("professions" ) var professions : ArrayList<Professions> = arrayListOf()
+    @SerializedName("professions" ) var professions : ArrayList<Profession> = arrayListOf()
         )
