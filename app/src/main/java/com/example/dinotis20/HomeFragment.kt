@@ -86,14 +86,14 @@ class HomeFragment : Fragment() {
             startActivity(Intent(view.context, NotificationActivity::class.java))
         }
 
-        val meetingApi = MeetingRetrofitHelper.getInstance().create(MeetingApi::class.java)
-        GlobalScope.launch {
-            val result = meetingApi.getMeeting()
-            if (result != null) {
-                listAllSchedule.add(result.body())
-                Log.d("", result.body().toString())
-            }
-        }
+//        val meetingApi = MeetingRetrofitHelper.getInstance().create(MeetingApi::class.java)
+//        GlobalScope.launch {
+//            val result = meetingApi.getMeeting()
+//            if (result != null) {
+//                listAllSchedule.add(result.body())
+//                Log.d("", result.body().toString())
+//            }
+//        }
 
         rvAdapterAllSchedule = MeetingScheduleAdapter(listAllSchedule)
         frag_home_rv_allschedule?.adapter = rvAdapterAllSchedule

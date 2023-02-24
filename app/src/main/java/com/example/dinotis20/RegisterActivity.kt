@@ -19,49 +19,66 @@ class RegisterActivity : AppCompatActivity() {
     // Firebase
     private lateinit var auth: FirebaseAuth
 
-
-    // variables
-    private var phoneNumber = "+62"
-
     // elements
-    private val edtPhoneNumber = findViewById<EditText>(R.id.rg_edt_phonenum)
-    private val edtName = findViewById<EditText>(R.id.rg_edt_name)
-    private val edtPassword = findViewById<EditText>(R.id.rg_edt_pass)
-    private val edtRePassword = findViewById<EditText>(R.id.rg_edt_repass)
-    private val btRegister = findViewById<Button>(R.id.rg_bt_register)
-    private val txtLogin = findViewById<TextView>(R.id.rg_txt_login)
+    private lateinit var edtEmail: EditText
+    private lateinit var edtName: EditText
+    private lateinit var edtPassword: EditText
+    private lateinit var edtRePassword:EditText
+    private lateinit var btRegister: Button
+    private lateinit var txtLogin: TextView
+
+    private fun init() {
+        edtEmail = findViewById(R.id.rg_edt_email)
+        edtName = findViewById(R.id.rg_edt_name)
+        edtPassword = findViewById(R.id.rg_edt_pass)
+        edtRePassword = findViewById(R.id.rg_edt_repass)
+        btRegister = findViewById(R.id.rg_bt_register)
+        txtLogin = findViewById(R.id.rg_txt_login)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // TODO: register phone number
+        init()
+
         auth = Firebase.auth
 
         btRegister.setOnClickListener{
-            if (edtPhoneNumber.text.isNotEmpty()) {
-                phoneNumber += edtPhoneNumber.text.toString()
-                Toast.makeText(this, "Registered dummy", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, LoginActivity::class.java))
+            if (edtEmail.text.isNotEmpty()) {
+                if (edtPassword.text.toString() == edtRePassword.text.toString()) {
+                    auth.createUserWithEmailAndPassword(
+                        edtEmail.text.toString(),
+                        edtPassword.text.toString()
+                    )
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                val user = auth.currentUser
+                                Toast.makeText(this, "Successfully registered!", Toast.LENGTH_SHORT)
+                                    .show()
+                                startActivity(Intent(this, LoginActivity::class.java))
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    "Registration failed, please check your credentials",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }
+                        }
+                } else {
+                    Toast.makeText(this, "Password is different!", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                Toast.makeText(this, "Please enter a valid phone number!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter a valid credentials!", Toast.LENGTH_SHORT).show()
             }
         }
 
-        val user = User(phoneNumber, edtName.text.toString())
+        txtLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
+//        val user = User(edtEmail.text.toString(), edtName.text.toString())
 
     }
-
-    private fun sendOTP(phoneNumber: String) {
-//        callbacks = object: PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-//
-//        }
-//        val options = PhoneAuthOptions.newBuilder(auth)
-//            .setPhoneNumber(phoneNumber)
-//            .setTimeout(60L, TimeUnit.SECONDS)
-//            .setActivity(this)
-//            .setCallbacks()
-    }
-
-
 }

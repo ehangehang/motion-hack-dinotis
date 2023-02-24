@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -73,7 +75,8 @@ class ProfileFragment : Fragment() {
             builder.setTitle("Logout")
             builder.setMessage("Are you sure you want to logout?")
             builder.setPositiveButton("Yes") { dialog, which ->
-                Toast.makeText(view.context, "Logged out!", Toast.LENGTH_SHORT).show()
+                Firebase.auth.signOut()
+                startActivity(Intent(view.context, LoginActivity::class.java))
             }
             builder.setNegativeButton("No") { dialog, which ->
                 Toast.makeText(view.context, "Cancelled logout", Toast.LENGTH_SHORT).show()

@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
     // Firebase
@@ -16,17 +19,43 @@ class LoginActivity : AppCompatActivity() {
     private var phoneNumber = "+62"
 
     // elements
-    private val edtEmail = findViewById<EditText>(R.id.lg_edt_email)
-    private val edtPassword = findViewById<EditText>(R.id.lg_edt_pass)
-    private val btLogin = findViewById<Button>(R.id.lg_bt_login)
-    private val txtRegister = findViewById<TextView>(R.id.lg_txt_register)
+    private lateinit var edtEmail: EditText
+    private lateinit var edtPassword: EditText
+    private lateinit var btLogin: Button
+    private lateinit var txtRegister: TextView
+
+    private fun init() {
+        auth = Firebase.auth
+
+        edtEmail = findViewById(R.id.lg_edt_email)
+        edtPassword = findViewById(R.id.lg_edt_pass)
+        btLogin = findViewById(R.id.lg_bt_login)
+        txtRegister = findViewById(R.id.lg_txt_register)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        init()
+
         btLogin.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            if (edtEmail.text.isNotEmpty() && edtPassword.text.isNotEmpty()) {
+                auth.signInWithEmailAndPassword(edtEmail.text.toString(), edtPassword.text.toString())
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            startActivity(Intent(this, MainActivity::class.java))
+                        } else {
+                            Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            } else {
+                Toast.makeText(this, "Fill all information!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        txtRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }

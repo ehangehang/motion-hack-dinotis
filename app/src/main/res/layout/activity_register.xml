@@ -8,24 +8,11 @@
     android:gravity="center"
     tools:context=".RegisterActivity">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/rg_edt_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+62 "
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/rg_edt_phonenum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="phone number"
-            android:inputType="number"/>
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:hint="email"/>
 
     <EditText
         android:id="@+id/rg_edt_name"
