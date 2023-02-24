@@ -54,6 +54,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
+    implementation 'com.google.code.gson:gson:2.9.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
