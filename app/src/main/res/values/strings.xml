@@ -20,5 +20,22 @@
     <string name="enter_email">Enter your email address</string>
     <string name="password_asterisk">Password*</string>
     <string name="enter_password">Enter your password</string>
-    <string name="login_noaccount">Don\'t have an account yet?</string>
+    <string name="login_noaccount">Don\'t have an account yet? </string>
+    <string name="title_asterisk">Title*</string>
+    <string name="description_asterisk">Description*</string>
+    <string name="date_asterisk">Date*</string>
+    <string name="start">Start</string>
+    <string name="finish">Finish</string>
+    <string name="wib">WIB</string>
+    <string name="type_asterisk">Type*</string>
+    <string name="capacity_asterisk">Capacity*</string>
+    <string name="thumbnail_asterisk">Thumbnail*</string>
+    <string name="make_event">Make Event</string>
+    <string name="enter_title">Enter event title</string>
+    <string name="enter_description">Enter event description</string>
+    <string name="select_date">Select event date</string>
+    <string name="enter_time">Time</string>
+    <string name="choose_type">Choose event type</string>
+    <string name="enter_capacity">Enter event capacity</string>
+    <string name="select_thumbnail">Select event thumbnail</string>
 </resources>
