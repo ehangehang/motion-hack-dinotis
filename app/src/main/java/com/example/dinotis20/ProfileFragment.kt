@@ -68,19 +68,19 @@ class ProfileFragment : Fragment() {
             }
 
         frag_profile_account?.setOnClickListener {
-            Toast.makeText(view.context, "Account page", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(view.context, EditProfileActivity::class.java))
         }
 
         frag_profile_subs?.setOnClickListener {
-            Toast.makeText(view.context, "Your Choice Creator page", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(view.context, ChosenCreatorActivity::class.java))
         }
 
         frag_profile_portfolio?.setOnClickListener {
-            Toast.makeText(view.context, "Portfolio page", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(view.context, PortfolioActivity::class.java))
         }
 
         frag_profile_roles?.setOnClickListener {
-            Toast.makeText(view.context, "Pick Roles page", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(view.context, PickRoleActivity::class.java))
         }
 
         frag_profile_help?.setOnClickListener {
