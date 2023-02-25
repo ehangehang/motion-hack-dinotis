@@ -12,9 +12,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinotis20.adapter.MeetingScheduleAdapter
+import com.example.dinotis20.`class`.GetCurrentUser
 import com.example.dinotis20.helper.MeetingRetrofitHelper
 import com.example.dinotis20.`interface`.MeetingApi
 import com.example.dinotis20.model.Meeting
+import com.example.dinotis20.model.User
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -35,6 +40,9 @@ class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private val currentUser = Firebase.auth
+    private val docRef = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +66,19 @@ class HomeFragment : Fragment() {
     @OptIn(DelicateCoroutinesApi::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        docRef.collection("Users").document(currentUser.uid.toString())
+            .get()
+            .addOnSuccessListener { doc ->
+                if (doc != null) {
+                    frag_home_txt_name?.text = doc.get("name").toString()
+                } else {
+                    Log.d("", "Document not found!")
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.w("", "Error fetching document: "+e)
+            }
 
         val rv = view.findViewById<RecyclerView>(R.id.frag_home_rv_allschedule)
 

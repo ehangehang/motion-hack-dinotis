@@ -3,6 +3,7 @@ package com.example.dinotis20
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -13,14 +14,17 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.Properties
 import java.util.concurrent.TimeUnit
 
 class RegisterActivity : AppCompatActivity() {
     // Firebase
     private lateinit var auth: FirebaseAuth
-    private lateinit var db: DatabaseReference
+    private val db = Firebase.firestore
 
     // elements
     private lateinit var edtEmail: EditText
@@ -32,7 +36,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun init() {
         auth = Firebase.auth
-        db = Firebase.database.reference
 
         edtEmail = findViewById(R.id.rg_edt_email)
         edtName = findViewById(R.id.rg_edt_name)
@@ -59,9 +62,9 @@ class RegisterActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 val user = auth.currentUser
                                 writeNewUser(auth.currentUser?.uid.toString(), edtEmail.text.toString(), edtName.text.toString())
-                                Toast.makeText(this, "Successfully registered!", Toast.LENGTH_SHORT)
-                                    .show()
-                                startActivity(Intent(this, LoginActivity::class.java))
+//                                Toast.makeText(this, "Successfully registered!", Toast.LENGTH_SHORT)
+//                                    .show()
+                                finish()
                             } else {
                                 Toast.makeText(
                                     this,
@@ -87,9 +90,16 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-    fun writeNewUser(userId: String, name: String, email: String) {
+    private fun writeNewUser(userId: String, email: String, name: String) {
         val user = User(email, name)
 
-        db.child("users").child(userId).setValue(user)
+        db.collection("Users").document(userId)
+            .set(user)
+            .addOnSuccessListener {
+                Log.d("", "User data registered successfully!")
+            }
+            .addOnFailureListener { e ->
+                Log.w("", "ERROR uploading user data: "+e)
+            }
     }
 }

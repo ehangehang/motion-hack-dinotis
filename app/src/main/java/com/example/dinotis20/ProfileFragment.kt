@@ -4,13 +4,16 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,6 +30,9 @@ class ProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private val currentUser = Firebase.auth
+    private val docRef = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +52,20 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        docRef.collection("Users").document(currentUser.uid.toString())
+            .get()
+            .addOnSuccessListener { doc ->
+                if (doc != null) {
+                    profile_txt_name?.text = doc.get("name").toString()
+                    profile_txt_roles?.text = doc.get("roles").toString()
+                } else {
+                    Log.d("", "Document not found!")
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.w("", "Error fetching document: "+e)
+            }
 
         frag_profile_account?.setOnClickListener {
             Toast.makeText(view.context, "Account page", Toast.LENGTH_SHORT).show()
