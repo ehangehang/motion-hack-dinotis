@@ -12,12 +12,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
 class RegisterActivity : AppCompatActivity() {
     // Firebase
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: DatabaseReference
 
     // elements
     private lateinit var edtEmail: EditText
@@ -28,6 +31,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var txtLogin: TextView
 
     private fun init() {
+        auth = Firebase.auth
+        db = Firebase.database.reference
+
         edtEmail = findViewById(R.id.rg_edt_email)
         edtName = findViewById(R.id.rg_edt_name)
         edtPassword = findViewById(R.id.rg_edt_pass)
@@ -42,8 +48,6 @@ class RegisterActivity : AppCompatActivity() {
 
         init()
 
-        auth = Firebase.auth
-
         btRegister.setOnClickListener{
             if (edtEmail.text.isNotEmpty()) {
                 if (edtPassword.text.toString() == edtRePassword.text.toString()) {
@@ -54,6 +58,7 @@ class RegisterActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 val user = auth.currentUser
+                                writeNewUser(auth.currentUser?.uid.toString(), edtEmail.text.toString(), edtName.text.toString())
                                 Toast.makeText(this, "Successfully registered!", Toast.LENGTH_SHORT)
                                     .show()
                                 startActivity(Intent(this, LoginActivity::class.java))
@@ -80,5 +85,11 @@ class RegisterActivity : AppCompatActivity() {
 
 //        val user = User(edtEmail.text.toString(), edtName.text.toString())
 
+    }
+
+    fun writeNewUser(userId: String, name: String, email: String) {
+        val user = User(email, name)
+
+        db.child("users").child(userId).setValue(user)
     }
 }
