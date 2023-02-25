@@ -40,10 +40,8 @@ class ScheduleActivity : AppCompatActivity() {
         val meetingApi = MeetingRetrofitHelper.getInstance().create(ApiInterface::class.java)
         lifecycleScope.launchWhenCreated {
             val result = meetingApi.getMeeting()
-            println(result.body()?.meetings)
             if (result.isSuccessful) {
                 listAllSchedule = result.body()!!.meetings
-                println(listAllSchedule)
                 Log.d("", result.body().toString())
 
                 rvAdapterScheduleBanner = MeetingScheduleBannerAdapter(listAllSchedule)

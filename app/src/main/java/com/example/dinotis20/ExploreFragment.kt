@@ -1,10 +1,20 @@
 package com.example.dinotis20
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.dinotis20.adapter.LiveAdapter
+import com.example.dinotis20.adapter.LiveBannerAdapter
+import com.example.dinotis20.adapter.MeetingScheduleBannerAdapter
+import com.example.dinotis20.helper.MeetingRetrofitHelper
+import com.example.dinotis20.`interface`.ApiInterface
+import com.example.dinotis20.model.Meeting
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,17 +27,11 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ExploreFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var rvCreators : RecyclerView
+    private lateinit var rvDetails : RecyclerView
+    private lateinit var rvCreatorsAdapter : LiveAdapter
+    private lateinit var rvDetailsAdapter : LiveBannerAdapter
+    private var listMeeting = emptyList<Meeting>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +39,30 @@ class ExploreFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_explore, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        rvCreators = view.findViewById(R.id.frag_explore_rv_creator)
+        rvDetails = view.findViewById(R.id.frag_explore_rv_details)
+
+        val meetingApi = MeetingRetrofitHelper.getInstance().create(ApiInterface::class.java)
+        lifecycleScope.launchWhenCreated {
+            val result = meetingApi.getMeeting(10)
+            if (result.isSuccessful) {
+                listMeeting = result.body()!!.meetings
+                Log.d("", result.body().toString())
+
+                rvCreatorsAdapter = LiveAdapter(listMeeting)
+                rvCreators.adapter = rvCreatorsAdapter
+                rvCreators.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                rvDetailsAdapter = LiveBannerAdapter(listMeeting)
+                rvDetails.adapter = rvDetailsAdapter
+                rvDetails.layoutManager = LinearLayoutManager(requireContext())
+            }
+        }
     }
 
     companion object {

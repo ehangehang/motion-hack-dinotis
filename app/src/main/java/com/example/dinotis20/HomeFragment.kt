@@ -110,15 +110,13 @@ class HomeFragment : Fragment() {
         val meetingApi = MeetingRetrofitHelper.getInstance().create(ApiInterface::class.java)
         lifecycleScope.launchWhenCreated {
             val result = meetingApi.getMeeting()
-            println(result.body()?.meetings)
             if (result.isSuccessful) {
                 listAllSchedule = result.body()!!.meetings
-                println(listAllSchedule)
                 Log.d("", result.body().toString())
 
                 rvAdapterAllSchedule = MeetingScheduleAdapter(listAllSchedule)
                 rv.adapter = rvAdapterAllSchedule
-                rv.layoutManager = LinearLayoutManager(requireContext())
+                rv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             }
         }
     }

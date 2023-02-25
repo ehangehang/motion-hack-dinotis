@@ -2,7 +2,7 @@ package com.example.dinotis20.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MeetingsMetadata(
+data class Metadata(
     @SerializedName("page")
     var page : Int,
     @SerializedName("size")
