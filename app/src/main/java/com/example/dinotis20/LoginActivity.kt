@@ -3,8 +3,11 @@ package com.example.dinotis20
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +26,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var edtPassword: EditText
     private lateinit var btLogin: Button
     private lateinit var txtRegister: TextView
+    private lateinit var btEye : ImageView
+    private var passVisible = false
 
     private fun init() {
         auth = Firebase.auth
@@ -31,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         edtPassword = findViewById(R.id.lg_edt_pass)
         btLogin = findViewById(R.id.lg_bt_login)
         txtRegister = findViewById(R.id.lg_txt_register)
+        btEye = findViewById(R.id.lg_bt_eye)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +65,18 @@ class LoginActivity : AppCompatActivity() {
 
         txtRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        btEye.setOnClickListener {
+            if (!passVisible) {
+                edtPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                btEye.setImageDrawable(resources.getDrawable(R.drawable.ic_eye))
+                passVisible = true
+            } else {
+                edtPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                btEye.setImageDrawable(resources.getDrawable(R.drawable.ic_eye_slash))
+                passVisible = false
+            }
         }
     }
 }

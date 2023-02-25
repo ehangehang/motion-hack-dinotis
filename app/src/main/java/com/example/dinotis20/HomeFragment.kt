@@ -74,7 +74,8 @@ class HomeFragment : Fragment() {
                 Log.w("", "Error fetching document: "+e)
             }
 
-        val rv = view.findViewById<RecyclerView>(R.id.frag_home_rv_allschedule)
+        val rv_schedule = view.findViewById<RecyclerView>(R.id.frag_home_rv_allschedule)
+        val rv_special = view.findViewById<RecyclerView>(R.id.frag_home_rv_specialschedule)
 
         frag_home_edt_search?.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -115,8 +116,11 @@ class HomeFragment : Fragment() {
                 Log.d("", result.body().toString())
 
                 rvAdapterAllSchedule = MeetingScheduleAdapter(listAllSchedule)
-                rv.adapter = rvAdapterAllSchedule
-                rv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                rv_schedule.adapter = rvAdapterAllSchedule
+                rv_schedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                rv_special.adapter = rvAdapterAllSchedule
+                rv_special.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             }
         }
     }

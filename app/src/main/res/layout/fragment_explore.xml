@@ -45,8 +45,9 @@
             android:id="@+id/frag_explore_rv_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="30dp"
-            android:layout_marginHorizontal="20dp"/>
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"/>
 
     </LinearLayout>
 

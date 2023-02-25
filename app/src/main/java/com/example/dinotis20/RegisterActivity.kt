@@ -3,9 +3,12 @@ package com.example.dinotis20
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.dinotis20.model.User
@@ -33,6 +36,10 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var edtRePassword:EditText
     private lateinit var btRegister: Button
     private lateinit var txtLogin: TextView
+    private lateinit var btEyePass : ImageView
+    private lateinit var btEyeRepass : ImageView
+    private var passVisible = false
+    private var repassVisible = false
 
     private fun init() {
         auth = Firebase.auth
@@ -43,6 +50,8 @@ class RegisterActivity : AppCompatActivity() {
         edtRePassword = findViewById(R.id.rg_edt_repass)
         btRegister = findViewById(R.id.rg_bt_register)
         txtLogin = findViewById(R.id.rg_txt_login)
+        btEyePass = findViewById(R.id.rg_bt_pass_eye)
+        btEyeRepass = findViewById(R.id.rg_bt_repass_eye)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,6 +95,30 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
+
+        btEyePass.setOnClickListener {
+            if (!passVisible) {
+                edtPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                btEyePass.setImageDrawable(resources.getDrawable(R.drawable.ic_eye))
+                passVisible = true
+            } else {
+                edtPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                btEyePass.setImageDrawable(resources.getDrawable(R.drawable.ic_eye_slash))
+                passVisible = false
+            }
+        }
+
+        btEyeRepass.setOnClickListener {
+            if (!repassVisible) {
+                edtRePassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                btEyeRepass.setImageDrawable(resources.getDrawable(R.drawable.ic_eye))
+                repassVisible = true
+            } else {
+                edtRePassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                btEyeRepass.setImageDrawable(resources.getDrawable(R.drawable.ic_eye_slash))
+                repassVisible = false
+            }
+        }
 //        val user = User(edtEmail.text.toString(), edtName.text.toString())
 
     }

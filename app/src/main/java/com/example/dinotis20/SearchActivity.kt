@@ -13,26 +13,45 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinotis20.adapter.MeetingScheduleAdapter
+import com.example.dinotis20.adapter.MeetingScheduleBannerAdapter
 import com.example.dinotis20.adapter.SearchCreatorAdapter
 import com.example.dinotis20.helper.MeetingRetrofitHelper
 import com.example.dinotis20.`interface`.ApiInterface
+import com.example.dinotis20.model.Meeting
 
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var searchEditText : EditText
     private lateinit var searchLayout : LinearLayout
     private lateinit var defaultLayout: LinearLayout
+    private lateinit var rvTrending : RecyclerView
+    private lateinit var rvTrendingAdapter : MeetingScheduleAdapter
     private lateinit var rvSearch : RecyclerView
     private lateinit var rvSearchAdapter : SearchCreatorAdapter
+    private var listTrending = emptyList<Meeting>()
     private var listCreator = emptyList<Creator>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
         rvSearch = findViewById(R.id.src_rv_creators)
+        rvTrending = findViewById(R.id.src_rv_trending)
         defaultLayout = findViewById(R.id.layout_default)
         searchLayout = findViewById(R.id.layout_search_creators)
         searchLayout.visibility = View.GONE
+
+        val meetingApi = MeetingRetrofitHelper.getInstance().create(ApiInterface::class.java)
+        lifecycleScope.launchWhenCreated {
+            val result = meetingApi.getMeeting()
+            if (result.isSuccessful) {
+                listTrending = result.body()!!.meetings
+                Log.d("", result.body().toString())
+
+                rvTrendingAdapter = MeetingScheduleAdapter(listTrending)
+                rvTrending.adapter = rvTrendingAdapter
+                rvTrending.layoutManager = LinearLayoutManager(this@SearchActivity, LinearLayoutManager.HORIZONTAL, false)
+            }
+        }
 
         searchEditText = findViewById(R.id.src_edt_search)
         searchEditText.addTextChangedListener(object : TextWatcher {

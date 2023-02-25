@@ -39,9 +39,11 @@
     <string name="enter_capacity">Enter event capacity</string>
     <string name="select_thumbnail">Select event thumbnail</string>
 
+    <!--ONBOARDING STRING-->
     <string name="onboarding_first_title">Chat With Awesome Creators</string>
     <string name="onboarding_first_subtitle">Meet a great creators from various profession? Only here is the place.</string>
     <string name="onboarding_second_title">Anytime Anywhere!</string>
     <string name="onboarding_second_subtitle">Are you statisfied just hearing the sound? like podcast? if you chat here, you can see each other!</string>
 
+    <!--DUMMY ATTRIBUTES-->
 </resources>

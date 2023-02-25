@@ -308,7 +308,7 @@
                         android:id="@+id/frag_home_rv_specialschedule"
                         android:layout_width="match_parent"
                         android:layout_height="280dp"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="50dp"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:spanCount="2"/>
 
