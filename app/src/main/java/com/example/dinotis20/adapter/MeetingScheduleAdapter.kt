@@ -21,10 +21,10 @@ class MeetingScheduleAdapter(private val items: List<Meeting>): RecyclerView.Ada
 
         fun bindItem(meeting: Meeting) {
             Picasso.get()
-                .load(meeting.creator?.profilPhoto)
+                .load(meeting.creator.profilPhoto)
                 .into(imgProfpic)
             txtTitle.text = meeting.title
-            txtName.text = meeting.creator?.name
+            txtName.text = meeting.creator.name
             txtDate.text = meeting.startAt
             txtTime.text = meeting.endAt
             txtPrice.text = meeting.price.toString()

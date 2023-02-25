@@ -11,7 +11,7 @@ class GetCurrentUser {
     private lateinit var currentUser: FirebaseAuth
     private val docRef = Firebase.firestore
 
-    public fun getCurrentUser(): User {
+    fun getCurrentUser(): User {
         currentUser = Firebase.auth
 
         var user = arrayListOf<User>()

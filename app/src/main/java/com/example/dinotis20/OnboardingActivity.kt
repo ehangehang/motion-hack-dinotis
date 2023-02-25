@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
-import org.w3c.dom.Text
 
 class OnboardingActivity : AppCompatActivity() {
 

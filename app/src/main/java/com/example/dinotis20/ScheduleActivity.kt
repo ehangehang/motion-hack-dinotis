@@ -1,14 +1,12 @@
 package com.example.dinotis20
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dinotis20.adapter.MeetingScheduleAdapter
 import com.example.dinotis20.adapter.MeetingScheduleBannerAdapter
 import com.example.dinotis20.helper.MeetingRetrofitHelper
 import com.example.dinotis20.`interface`.ApiInterface

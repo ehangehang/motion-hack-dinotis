@@ -24,9 +24,9 @@ class TransactionAdapter(private val items: List<Meeting>): RecyclerView.Adapter
 
         fun bindItem(meeting: Meeting) {
             Picasso.get()
-                .load(meeting.creator?.profilPhoto)
+                .load(meeting.creator.profilPhoto)
                 .into(imgProfpic)
-            txtCreatorName.text = meeting.creator?.name
+            txtCreatorName.text = meeting.creator.name
             txtDate.text = meeting.startAt
 //            txtStatus.text = meeting.
             txtTitle.text = meeting.title

@@ -23,9 +23,9 @@ class MeetingScheduleBannerAdapter(private val items: List<Meeting>): RecyclerVi
 
         fun bindItem(meeting: Meeting) {
             Picasso.get()
-                .load(meeting.creator?.profilPhoto)
+                .load(meeting.creator.profilPhoto)
                 .into(imgProfpic)
-            txtCreatorName.text = meeting.creator?.name
+            txtCreatorName.text = meeting.creator.name
             txtDate.text = meeting.startAt
             txtTitle.text = meeting.title
             txtTime.text = meeting.startAt

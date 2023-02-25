@@ -18,12 +18,12 @@ class LiveBannerAdapter(private val items: List<Meeting>): RecyclerView.Adapter<
 
         fun bindItem(meeting: Meeting) {
             Picasso.get()
-                .load(meeting.creator?.profilPhoto)
+                .load(meeting.creator.profilPhoto)
                 .into(imgProfpic)
             Picasso.get()
-                .load(meeting.creator?.profilPhoto)
+                .load(meeting.creator.profilPhoto)
                 .into(imgBanner)
-            txtName.text = meeting.creator?.name
+            txtName.text = meeting.creator.name
         }
     }
 

@@ -17,7 +17,7 @@ class SearchCreatorAdapter(private val items: List<Creator>): RecyclerView.Adapt
 
         fun bindItem(creator: Creator) {
             Picasso.get()
-                .load(creator?.profilPhoto)
+                .load(creator.profilPhoto)
                 .into(imgProfpic)
             txtName.text = creator.name
         }

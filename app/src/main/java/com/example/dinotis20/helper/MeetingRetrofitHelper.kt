@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object MeetingRetrofitHelper {
 
     fun getInstance(): Retrofit {
-        return retrofit2.Retrofit.Builder()
+        return Retrofit.Builder()
             .baseUrl("https://api.hackathon.dinotis.com/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()

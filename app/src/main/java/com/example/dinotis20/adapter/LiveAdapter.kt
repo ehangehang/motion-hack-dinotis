@@ -15,7 +15,7 @@ class LiveAdapter(private val items: List<Meeting>): RecyclerView.Adapter<LiveAd
 
         fun bindItem(meeting: Meeting) {
             Picasso.get()
-                .load(meeting.creator?.profilPhoto)
+                .load(meeting.creator.profilPhoto)
                 .into(imgProfpic)
         }
     }

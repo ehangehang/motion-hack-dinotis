@@ -1,22 +1,21 @@
 package com.example.dinotis20
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.dinotis20.model.Creator
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinotis20.adapter.MeetingScheduleAdapter
-import com.example.dinotis20.adapter.MeetingScheduleBannerAdapter
 import com.example.dinotis20.adapter.SearchCreatorAdapter
 import com.example.dinotis20.helper.MeetingRetrofitHelper
 import com.example.dinotis20.`interface`.ApiInterface
+import com.example.dinotis20.model.Creator
 import com.example.dinotis20.model.Meeting
 
 class SearchActivity : AppCompatActivity() {
