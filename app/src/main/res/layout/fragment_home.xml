@@ -16,18 +16,22 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/imageView5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:scaleType="fitXY"
                 android:src="@drawable/bg_home"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:scaleType="fitXY"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView5">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -42,7 +46,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/button_notification"/>
+                        android:background="@drawable/button_notification" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/frag_home_img_profpic"
@@ -58,29 +62,29 @@
                         android:id="@+id/frag_home_txt_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="name_here"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
+                        android:layout_below="@+id/frag_home_img_profpic"
                         android:layout_marginHorizontal="20dp"
-                        android:layout_below="@+id/frag_home_img_profpic"/>
+                        android:text="name_here"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/frag_home_txt_subtitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/frag_home_txt_name"
+                        android:layout_marginHorizontal="20dp"
                         android:text="Let's find the best consultant with us!"
-                        android:textColor="@color/white"
-                        android:layout_marginHorizontal="20dp"/>
+                        android:textColor="@color/white" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/frag_home_txt_subtitle"
-                        app:cardCornerRadius="14dp"
+                        android:layout_marginHorizontal="20dp"
                         android:layout_marginVertical="25dp"
-                        android:layout_marginHorizontal="20dp">
+                        app:cardCornerRadius="14dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -91,18 +95,18 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginStart="20dp"
-                                android:src="@drawable/ic_search"/>
+                                android:src="@drawable/ic_search" />
 
                             <EditText
                                 android:id="@+id/frag_home_edt_search"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Search your creator..."
                                 android:layout_marginHorizontal="10dp"
-                                android:inputType="none"
-                                android:singleLine="true"
                                 android:background="@null"
-                                android:editable="true"/>
+                                android:editable="true"
+                                android:hint="Search your creator..."
+                                android:inputType="none"
+                                android:singleLine="true" />
 
                         </LinearLayout>
 
@@ -119,8 +123,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="60dp"
@@ -130,16 +134,16 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/button_schedule"/>
+                                android:src="@drawable/button_schedule" />
 
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
                             android:text="Schedule"
-                            android:textColor="@color/dark_accent"
-                            android:layout_marginVertical="5dp"/>
+                            android:textColor="@color/dark_accent" />
 
                     </LinearLayout>
 
@@ -148,8 +152,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="60dp"
@@ -159,16 +163,16 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/button_category"/>
+                                android:src="@drawable/button_category" />
 
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
                             android:text="Category"
-                            android:textColor="@color/dark_accent"
-                            android:layout_marginVertical="5dp"/>
+                            android:textColor="@color/dark_accent" />
 
                     </LinearLayout>
 
@@ -177,8 +181,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="60dp"
@@ -188,16 +192,16 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/button_meet"/>
+                                android:src="@drawable/button_meet" />
 
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
                             android:text="Meet"
-                            android:textColor="@color/dark_accent"
-                            android:layout_marginVertical="5dp"/>
+                            android:textColor="@color/dark_accent" />
 
                     </LinearLayout>
 
@@ -206,8 +210,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="60dp"
@@ -217,20 +221,29 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/button_wallet"/>
+                                android:src="@drawable/button_wallet" />
 
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
                             android:text="Wallet"
-                            android:textColor="@color/dark_accent"
-                            android:layout_marginVertical="5dp"/>
+                            android:textColor="@color/dark_accent" />
 
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ad_banner" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -249,9 +262,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="All Schedule"
+                            android:textColor="@color/dark_accent"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dark_accent"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/frag_home_txt_seeall"
@@ -260,7 +273,7 @@
                             android:layout_weight="1"
                             android:text="See all"
                             android:textAlignment="textEnd"
-                            android:textColor="@color/main_accent"/>
+                            android:textColor="@color/main_accent" />
 
                     </LinearLayout>
 
@@ -269,7 +282,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="280dp"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:spanCount="2"/>
+                        app:spanCount="2" />
 
                 </LinearLayout>
 
@@ -289,9 +302,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Special for you"
+                            android:textColor="@color/dark_accent"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dark_accent"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/frag_home_txt_seespecial"
@@ -300,7 +313,7 @@
                             android:layout_weight="1"
                             android:text="See all"
                             android:textAlignment="textEnd"
-                            android:textColor="@color/main_accent"/>
+                            android:textColor="@color/main_accent" />
 
                     </LinearLayout>
 
@@ -310,7 +323,7 @@
                         android:layout_height="280dp"
                         android:layout_marginBottom="50dp"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:spanCount="2"/>
+                        app:spanCount="2" />
 
                 </LinearLayout>
 
