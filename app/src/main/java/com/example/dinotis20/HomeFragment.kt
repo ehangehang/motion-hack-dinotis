@@ -7,24 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinotis20.adapter.MeetingScheduleAdapter
-import com.example.dinotis20.`class`.GetCurrentUser
 import com.example.dinotis20.helper.MeetingRetrofitHelper
-import com.example.dinotis20.`interface`.MeetingApi
+import com.example.dinotis20.`interface`.ApiInterface
 import com.example.dinotis20.model.Meeting
-import com.example.dinotis20.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -113,7 +107,7 @@ class HomeFragment : Fragment() {
             startActivity(Intent(view.context, NotificationActivity::class.java))
         }
 
-        val meetingApi = MeetingRetrofitHelper.getInstance().create(MeetingApi::class.java)
+        val meetingApi = MeetingRetrofitHelper.getInstance().create(ApiInterface::class.java)
         lifecycleScope.launchWhenCreated {
             val result = meetingApi.getMeeting()
             println(result.body()?.meetings)

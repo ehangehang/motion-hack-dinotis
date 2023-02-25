@@ -41,7 +41,7 @@ class MeetingScheduleBannerAdapter(private val items: List<Meeting>): RecyclerVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_live_banner, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_schedule_banner, parent, false))
     }
 
     override fun getItemCount(): Int = items.size
