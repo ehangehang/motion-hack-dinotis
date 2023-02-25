@@ -84,7 +84,7 @@ class ProfileFragment : Fragment() {
         }
 
         frag_profile_help?.setOnClickListener {
-            val url = "https://api.whatsapp.com/send?phone=+6281392413876"
+            val url = "https://api.whatsapp.com/send?phone=6281392413876"
             val intent = Intent(Intent.ACTION_VIEW)
             intent.setData(Uri.parse(url))
             startActivity(intent)
