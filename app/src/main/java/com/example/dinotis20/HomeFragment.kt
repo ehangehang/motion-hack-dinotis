@@ -7,11 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.dinotis20.adapter.MeetingScheduleAdapter
 import com.example.dinotis20.helper.MeetingRetrofitHelper
 import com.example.dinotis20.`interface`.MeetingApi
 import com.example.dinotis20.model.Meeting
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -48,12 +52,14 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    private val listAllSchedule = arrayListOf<Meeting>()
+    private var listAllSchedule = emptyList<Meeting>()
     private lateinit var rvAdapterAllSchedule: MeetingScheduleAdapter
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val rv = view.findViewById<RecyclerView>(R.id.frag_home_rv_allschedule)
 
         frag_home_edt_search?.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -86,19 +92,20 @@ class HomeFragment : Fragment() {
             startActivity(Intent(view.context, NotificationActivity::class.java))
         }
 
-//        val meetingApi = MeetingRetrofitHelper.getInstance().create(MeetingApi::class.java)
-//        GlobalScope.launch {
-//            val result = meetingApi.getMeeting()
-//            if (result != null) {
-//                listAllSchedule.add(result.body())
-//                Log.d("", result.body().toString())
-//            }
-//        }
+        val meetingApi = MeetingRetrofitHelper.getInstance().create(MeetingApi::class.java)
+        lifecycleScope.launchWhenCreated {
+            val result = meetingApi.getMeeting()
+            println(result.body()?.meetings)
+            if (result.isSuccessful) {
+                listAllSchedule = result.body()!!.meetings
+                println(listAllSchedule)
+                Log.d("", result.body().toString())
 
-        rvAdapterAllSchedule = MeetingScheduleAdapter(listAllSchedule)
-        frag_home_rv_allschedule?.adapter = rvAdapterAllSchedule
-        frag_home_rv_allschedule?.layoutManager = LinearLayoutManager(this.context)
-
+                rvAdapterAllSchedule = MeetingScheduleAdapter(listAllSchedule)
+                rv.adapter = rvAdapterAllSchedule
+                rv.layoutManager = LinearLayoutManager(requireContext())
+            }
+        }
     }
 
     companion object {
